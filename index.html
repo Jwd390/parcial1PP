@@ -14,14 +14,17 @@
             <nav>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#eventos">Eventos</a></li>
                     <li><a href="#videos">Videos</a></li>
                     <li><a href="#salas">Salas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#sala-list">Reservas</a></li>
                     
                 </ul>
             </nav>
         </div>
+    <a href="https://wa.me/1234567890" target="_blank">
+    <img src="img/whatsapp-icon.png" class="btn-flotante" alt="WhatsApp"></a>
+    
+
     </header>
     <main>
         <section id="inicio" class="inicio-section">
@@ -33,6 +36,31 @@
                     <div id="eventos-lista" class="eventos-lista">
                 </div>
             </div>
+        </section>
+        <section>
+            <table width="100%">
+                <tr>
+                    <td align="right">
+                        <h2>Nos especializamos en este tipo de eventos:</h2>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <img src="empresa.png" alt="Descripción de la imagen" width="650">
+                    </td>
+                    <td>
+                        <h1 style="font-size: 25px; font-weight: bold">Infantiles</h1>
+                        <br>
+                        <h1 style="font-size: 25px; font-weight: bold">Baby shower</h1>
+                        <br>
+                        <h1 style="font-size: 25px; font-weight: bold">Maquillajes</h1>
+                        <br>
+                        <h1 style="font-size: 25px; font-weight: bold">Show con personajes</h1>
+                    </td>
+                </tr>
+            </table>
         </section>
         <section id="videos" class="videos-section">
             <div class="container">
@@ -88,28 +116,40 @@
                 </div>
             </div>
         </section>
-        <section id="contacto" class="contacto-section">
-            <div class="container">
-                <h2>¡Contáctanos!</h2>
-                <form id="formulario-contacto" class="formulario-contacto">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                    <label for="fecha">Fecha del Evento:</label>
-                    <input type="text" id="fecha" name="fecha" required>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
+       
+        <section id="sala-list" class="sala-list">        
+        </section>      
+        <section id="reservation-form" class="reservation-form" style="display:none;">
+            <h2>Reservar en <span id="selected-sala"></span></h2>
+            <form id="reservation-details" action="base.php" method="POST">
+              <label>Fecha:</label>
+              <input type="date" id="fecha_evento" name = "fecha_evento"class="input-text" required>
+              
+              <label>Hora:</label>
+              <input type="time" id="hora" name="hora" class="input-text" required>
+              
+              <label>Cantidad de personas:</label>
+              <input type="number" id="cantidad_de_persona" name="cantidad_de_persona" min="1" class="input-text" required>
+      
+              <label>Correo:</label>
+              <input type="email" id="email" name="email" placeholder="correo@example.com" class="input-text" required>
+      
+              <div class="button-group">
+                <button type="submit" class="btn">Confirmar Reserva</button>
+              </div>
+            </form>
+        </section>
+      
+        <section id="confirmation-message" class="confirmation-message" style="display:none;">
+            <h2>¡Reserva Confirmada!</h2>
+            <p>Te llegará un mensaje de confirmación a <span id="contact-confirmation"></span>.</p>
         </section>
     </main>
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 Pelotero Mágico. ¡La diversión nunca termina!</p>
-            <a href="https://wa.me/1234567890" class="contacto1"target="_blank">
-                <img src="img/whatsapp-icon.png" class="contacto" alt="WhatsApp">
+            <a href="https://www.tiktok.com/@fcbmzr10/video/7310327383775628577?q=chipi&t=1730681548569" class="contacto1"target="_blank">
+                <img src="img/tiktok-icon.png" class="contacto" alt="TikTok">
             </a>
             <a href="https://www.facebook.com" class="contacto1" target="_blank">
                 <img src="img/facebook-icon.png" class="contacto" alt="Facebook">

@@ -1,62 +1,97 @@
-document.addEventListener("DOMContentLoaded", function() {
-      flatpickr("#fecha", {
-        altInput: true,
-        altFormat: "F j, Y",
-        dateFormat: "Y-m-d",
-        minDate: "today",
-        locale: "es"
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Lista ampliada de salas con más información
+  const sala = [
+    {
+      nombre: "Salon Aventura",
+      zona: "Sala externa",
+      tipo: "",
+      descripcion: "Capacidad máxima 30 personas.",
+      direccion: "",
+      horarioApertura: ["12:00", "15:00", "18:00", "21:00"],
+      horarioCierre: ["14:30", "17:30", "20:30", "23:30"],
+    },
+    {
+      nombre: "Salon Diversión",
+      zona: "Sala principal",
+      tipo: "",
+      descripcion: "Capacidad máxima 80 personas.",
+      direccion: "",
+      horarioApertura: ["12:00", "15:00", "18:00", "21:00"],
+      horarioCierre: ["14:30", "17:30", "20:30", "23:30"],
+    },
+    {
+      nombre: "Salon Fantasia",
+      zona: "Sala central",
+      tipo: "",
+      descripcion: "Capacidad máxima 45 personas.",
+      direccion: "",
+      horarioApertura: ["12:00", "15:00", "18:00", "21:00"],
+      horarioCierre: ["14:30", "17:30", "20:30", "23:30"],
+    },
+    {
+      nombre: "Salon Magico",
+      zona: "Sala externa",
+      tipo: "",
+      descripcion: "Capacidad máxima 75 personas.",
+      direccion: "",
+      horarioApertura: ["12:00", "15:00", "18:00", "21:00"],
+      horarioCierre: ["14:30", "17:30", "20:30", "23:30"],
+    },
+    // Añadir más salas según sea necesario
+  ];
+
+  // Mostrar todas las salas
+  function mostrarsala() {
+    const salaList = document.getElementById("sala-list");
+
+   
+    
+    sala.forEach(sala => {
+      const card = document.createElement("div");
+      card.classList.add("sala-card");
+      
+      // Generar el string de horarios
+      let horarios = "";
+      if (Array.isArray(sala.horarioApertura) && Array.isArray(sala.horarioCierre)) {
+        horarios = sala.horarioApertura.map((apertura, index) => {
+          const cierre = sala.horarioCierre[index] || ""; // Tomar horario de cierre correspondiente
+          return `${apertura} a ${cierre}`;
+        }).join(", ");
+      } else {
+        horarios = `${sala.horarioApertura} a ${sala.horarioCierre}`;
+      }
+
+      card.innerHTML = `
+        <h3>${sala.nombre}</h3>
+        <p>${sala.zona} - ${sala.tipo}. ${sala.descripcion}. Ubicación: ${sala.direccion}. Horarios: ${horarios}</p>
+        <button class="btn reserve-button">Reservar</button>
+      `;
+      
+      card.querySelector('.reserve-button').addEventListener('click', () => {
+        mostrarFormularioReserva(sala);
+      });
+      
+      salaList.appendChild(card);
     });
+  }
 
-    const form = document.getElementById('formulario-contacto');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const mensaje = document.getElementById('mensaje').value.trim();
-        const fecha = document.getElementById('fecha').value.trim();
+  // Función para mostrar el formulario de reserva
+  function mostrarFormularioReserva(sala) {
+    const selectedsalaSpan = document.getElementById("selected-sala");
+    const reservationForm = document.getElementById("reservation-form");
+    const confirmationMessage = document.getElementById("confirmation-message");
 
-        if (!nombre || !email || !mensaje || !fecha) {
-            alert('Por favor, complete todos los campos.');
-            return;
-        }
+    selectedsalaSpan.textContent = sala.nombre;
+    reservationForm.style.display = "block";
+    confirmationMessage.style.display = "none";
 
-        if (!validateEmail(email)) {
-            alert('Por favor, ingrese un correo electrónico válido.');
-            return;
-        }
+    // Validación de la fecha mínima (fecha actual)
+    const hoy = new Date().toISOString().split("T")[0];
+    document.getElementById("reservation-date").setAttribute("min", hoy);
+  }
 
-        alert('Formulario enviado exitosamente.');
-        form.reset();
-    });
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-
+  // Cargar las salas cuando el DOM esté listo
+  mostrarsala();
   
-    fetchEvents();
-
-    function fetchEvents() {
-        const events = [
-            { date: '2024-07-10', title: 'Cumpleaños Mágico', description: 'Sala AVENTURA.' },
-            { date: '2024-07-15', title: 'Fiesta de Verano', description: 'Sala DIVERSION.' },
-            { date: '2024-07-21', title: 'Cumpleaños Mágico', description: 'Sala FANTASIA  .' },
-            { date: '2024-07-28', title: 'Fiesta de Verano', description: 'Sala MAGIAS.' },
-          
-        ];
-
-        const eventosLista = document.getElementById('eventos-lista');
-        events.forEach(event => {
-            const eventoItem = document.createElement('div');
-            eventoItem.className = 'evento-item';
-            eventoItem.innerHTML = `
-                <h3>${event.title}</h3>
-                <p>${event.description}</p>
-                <p><strong>Fecha:</strong> ${event.date}</p>
-            `;
-            eventosLista.appendChild(eventoItem);
-        });
-    }
 });

@@ -2,42 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    background-image: linear-gradient(to right, #ffecd2, #fcb69f);
-}
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
+    
 }
 
 h1, h2 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 header {
-    background: #ff6347;
-    color: #fff;
+    background-color: #fff;
+    border-bottom: 1px solid #e0dcd9;
     padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    animation: slideIn 1s ease-in-out;
 }
 
 header a {
     color: #fff;
     text-decoration: none;
-    font-size: 26px;
-    margin:55px;
+    font-size: 30px;
+    margin:65px;
 }
 
 nav ul {
@@ -45,20 +39,10 @@ nav ul {
     text-align: center;
 }
 
-nav ul li {
-    display: inline;
-}
+
 
 nav ul li a {
     transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #000;
-}
-
-main {
-    padding: 40px 0;
 }
 
 section {
@@ -77,16 +61,11 @@ section {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
-.video-container,
-.videos-grid {
-    text-align: center;
-}
-
 .videos-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    text-align: center
 }
 
 .video-item {
@@ -114,14 +93,6 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-}
-
-.sala-item {
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; 
-    position: relative; 
 }
 
 .sala-item img {
@@ -200,7 +171,7 @@ section {
     border-radius: 5px;
 }
 
-.formulario-contacto button {
+.formulario-contacton {
     display: block;
     width: 100%;
     padding: 10px;
@@ -253,12 +224,313 @@ section {
         flex-direction: column;
     }
 
-    .sala-item {
-        margin: 10px 0;
-    }
+   
 }
 .contacto {
     width: 2%;
     margin: 1%;
 }
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .input-text, .input-select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .input-text:focus, .input-select:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #555;
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sala-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .sala-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .sala-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .sala-card p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .reservation-form, .confirmation-message {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reservation-form h2 {
+    margin-bottom: 15px;
+  }
+  
+  .input-text {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+   body {
+            background-color: #f8f4f0;
+            color: #4a4a4a;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header h1 {
+            color: #a68064;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+        header nav ul li {
+            margin: 0 15px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        header nav ul li:nth-child(1) { animation-delay: 0.5s; }
+        header nav ul li:nth-child(2) { animation-delay: 0.6s; }
+        header nav ul li:nth-child(3) { animation-delay: 0.7s; }
+        header nav ul li:nth-child(4) { animation-delay: 0.8s; }
+        header nav ul li:nth-child(5) { animation-delay: 0.9s; }
+        header nav ul li a {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header nav ul li a:hover {
+            color: #a68064;
+            transition: color 0.3s;
+        }
+        section {
+            padding: 40px 0;
+            animation: fadeInUp 1s ease-in-out;
+        }
+    
+        .inicio-section h2 {
+            color: #a68064;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            
+        }
+        .inicio-section p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #7a7a7a;
+            
+        }
+        .video-container iframe {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #e0dcd9;
+            border-radius: 5px;
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+        .video-container iframe:hover {
+            transform: scale(1.1);
+        }
+        .videos-section h2, .salas-section h2, .contacto-section h2 {
+            color: #a68064;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .videos-grid .video-item {
+            background-color: #fff;
+            border: 1px solid #e0dcd9;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px 0;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-in-out forwards;
+        }
+        .videos-grid .video-item:nth-child(1) { animation-delay: 0.5s; }
+        .salas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .sala-item {
+            background-color: #fff;
+            border: 1px solid #e0dcd9;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 48%;
+            text-align: center;
+            transform: scale(0.95);
+            transition: transform 0.3s;
+            animation: fadeIn 1s ease-in-out;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-in-out forwards;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative; 
+        }
+      
+        .sala-item img {
+            width: 100%;
+            border-bottom: 1px solid #e0dcd9;
+        }
+        .sala-info h3 {
+            color: #a68064;
+            margin: 15px 0;
+        }
+        .sala-info p {
+            color: #7a7a7a;
+        }
+        .contacto-section form {
+            background-color: #fff;
+            border: 1px solid #e0dcd9;
+            padding: 20px;
+            border-radius: 5px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        .contacto-section label {
+            display: block;
+            color: #7a7a7a;
+            margin-bottom: 5px;
+        }
+        .contacto-section input,
+        .contacto-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e0dcd9;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        .contacto-section input:focus,
+        .contacto-section textarea:focus {
+            border-color: #a68064;
+        }
+        .contacto-section button {
+            background-color: #a68064;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contacto-section button:hover {
+            background-color: #917354;
+        }
+        footer {
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #e0dcd9;
+        }
+        footer p {
+            color: #7a7a7a;
+        }
+        footer .contacto1 {
+            margin: 0 10px;
+        }
+        footer .contacto1 img {
+            width: 24px;
+            height: 24px;
+        }
 
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+ 
+
+/* Boton Flotante */
+.btn-flotante {
+	font-size: 14px; /* Cambiar tamaño de la tipografia */
+	text-transform: uppercase; /* Texto en mayusculas */
+	font-weight: bold; /* Fuente en negrita o bold */
+	color: #ffffff; /* Color del texto */
+	border-radius: 5px; /* Borde del boton */
+	letter-spacing: 2px; /* Espacio entre letras */
+	background-color: #0af564; /* Color de fondo */
+	padding: 15px 30px; /* Relleno del boton */
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	transition: all 300ms ease 0ms;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	z-index: 99;
+    text-decoration: none;
+    width: 7%;
+    margin: 5%;
+}
+.btn-flotante:hover {
+	background-color: #1ae456; /* Color de fondo al pasar cursor */
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+	transform: translateY(-7px);
+}
+@media only screen and (max-width: 600px) {
+ 	.btn-flotante {
+		font-size: 14px;
+		padding: 12px 20px;
+		bottom: 20px;
+		right: 20px;
+	}
+}
