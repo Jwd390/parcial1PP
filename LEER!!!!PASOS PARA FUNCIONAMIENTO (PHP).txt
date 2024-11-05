@@ -1,0 +1,4 @@
+1- Importe la base de datos en PhpMyAdmin
+2- Ejecutar Xampp con apache y MySql
+3- Enviar los archivos del parcial a carpeta Htdocs de Xampp 
+4- Url: Directorio Xampp/Htdocs/parcial1PP/index.html
